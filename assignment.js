@@ -18,6 +18,14 @@ function kilometerToMeter(kilometer){
 
 function budgetCalculator(watch,phone,laptop){
 
+    function checkNumberIfFloat(value) {
+        return Number(value) === value && value % 1 !== 0;  //function for checking this input is float or int  
+     }
+    if(checkNumberIfFloat(watch)==true || checkNumberIfFloat(phone)==true || checkNumberIfFloat(laptop)==true ) {
+        return "Error: please input a valid parameter hint: Watch/mobile/laptop can't be fraction number";
+
+    }
+
     if(watch<0 || phone<0 || laptop<0){
        return "Error: please input a valid parameter hint: Quantity can't be negative";
     }
@@ -25,19 +33,21 @@ function budgetCalculator(watch,phone,laptop){
         var watchTaka = watch*50;
         var phoneTaka = phone*100;
         var laptopTaka = laptop*500;
-    
+        
         var totalCost = watchTaka+phoneTaka+laptopTaka;
      return totalCost;
     }
 }
- 
+
 
 
 // hotelCost
      
 function hotelCost(day){
+
+    
     if(day<0){
-               return "Error: please input a valid parameter hint: Quantity can't be negative";
+               return "Error: please input a valid parameter hint: Day can't be negative";
     }
     else if(0<=day && day<=10){
         var cost = day*100;
